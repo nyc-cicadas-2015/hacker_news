@@ -1,0 +1,6 @@
+<li>
+  <%= link_to post.title, post.url %>
+  <% if current_user == post.user %>
+    <%= link_to "edit", edit_post_path(post.id) %>
+  <% end %>
+</li>

@@ -19,6 +19,21 @@ class PostsController < ApplicationController
     end
   end
 
+  def edit
+    @post = Post.find_by(id: params[:id])
+  end
+
+  def update
+    post = Post.find_by(id: params[:id])
+    post.update(post_params)
+    if post.save
+      redirect_to '/'
+    else
+      flash[:invalid_edit_field] = "Invalid field in the edit box, please try again"
+      redirect_to "/posts/#{post.id}/edit"
+    end
+  end
+
   private
   def post_params
     params.require(:post).permit(:url, :title)

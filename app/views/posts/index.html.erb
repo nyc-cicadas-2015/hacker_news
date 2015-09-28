@@ -1,7 +1,5 @@
 <ol>
   <% @posts.each do |post| %>
-    <li>
-      <%= link_to post.title, post.url %>
-    </li>
+    <%= render partial: "posts/show", locals: {post: post} %>
   <% end %>
 </ol>
