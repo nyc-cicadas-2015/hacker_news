@@ -1,6 +1,10 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.all
+      respond_to do |fmt|
+        fmt.html
+        fmt.json { render json: @posts.to_json } ## Fun!!
+      end
   end
 
   def new
@@ -25,13 +29,18 @@ class PostsController < ApplicationController
 
   def update
     post = Post.find_by(id: params[:id])
-    post.update(post_params)
-    if post.save
+    if post.update(post_params)
       redirect_to '/'
     else
       flash[:invalid_edit_field] = "Invalid field in the edit box, please try again"
-      redirect_to "/posts/#{post.id}/edit"
+      redirect_to edit_post_path(post)
     end
+  end
+
+  def destroy
+    post = Post.find_by(id: params[:id])
+    post.destroy
+    redirect_to '/'
   end
 
   private
