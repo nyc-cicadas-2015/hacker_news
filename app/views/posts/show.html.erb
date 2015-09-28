@@ -4,6 +4,7 @@
 
 <%= render partial: "comments/comment_form", locals: {comment: @new_comment, post: @post} %>
 
+
 <ol>
   <% @post.comments.each do |comment| %>
     <%= render partial: "posts/comment", locals: {comment: comment} %>

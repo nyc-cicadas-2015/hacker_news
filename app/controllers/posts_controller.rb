@@ -15,7 +15,6 @@ class PostsController < ApplicationController
     user = User.find_by(id: session[:user_id])
     post = user.posts.build(post_params)
     if post.save
-      binding.pry
       redirect_to '/'
     else
       flash[:error] = "post did not save, please try again."
@@ -46,7 +45,6 @@ class PostsController < ApplicationController
   def show
     @post = Post.find_by(id: params[:id])
     @new_comment = Comment.new
-    # @comment = @post.comments.build
   end
 
   private
