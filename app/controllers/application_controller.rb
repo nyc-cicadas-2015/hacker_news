@@ -14,14 +14,4 @@ def logged_in?
   session[:user_id]
 end
 
-  # before_filter :require_login
-
-  # private
-
-  # def require_login
-  #   unless logged_in?
-  #     flash[:error] = "you must be logged in"
-  #     redirect_to "/login"
-  #   end
-  # end
 end
