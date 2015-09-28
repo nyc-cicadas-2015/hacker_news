@@ -1,5 +1,7 @@
 <li>
   <%= link_to post.title, post.url %>
+  <%= link_to post.comments.count, post_path(post.id) %> comments
+  <br>
   <% if current_user == post.user %>
     <%= link_to "edit", edit_post_path(post.id) %>
     <%= link_to "delete", post_path(post.id), method: :delete %>
