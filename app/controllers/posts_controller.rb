@@ -11,7 +11,7 @@ class PostsController < ApplicationController
     user = User.find_by(id: session[:user_id])
     post = user.posts.build(post_params)
     if post.save
-          binding.pry
+      binding.pry
       redirect_to '/'
     else
       flash[:error] = "post did not save, please try again."
