@@ -1,0 +1,5 @@
+<%= form_for comment do |f| %>
+  <%= f.text_area :body, cols: 40, rows: 10 %><br>
+  <%= f.hidden_field :post_id, :value => post.id %>
+  <%= f.submit "Add comment" %>
+<% end %>
