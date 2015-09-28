@@ -1,8 +1,11 @@
 <br><%= @post.title %>(<%=@post.url%>)<br>
 
 <h6>written by <%=@post.user.username%> <%= time_ago_in_words(@post.created_at) %></h6>
+
+<%= render partial: "comments/comment_form", locals: {comment: @new_comment} %>
+
 <ol>
-<% @post.comments.each do |comment| %>
-  <%= render partial: "posts/comment", locals: {comment: comment}%>
-<% end %>
+  <% @post.comments.each do |comment| %>
+    <%= render partial: "posts/comment", locals: {comment: comment} %>
+  <% end %>
 </ol>
