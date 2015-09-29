@@ -1,20 +1,21 @@
 require_relative '../rails_helper'
 
-describe "the signin process" do
+describe "the register process" do
   before :each do
-    create(:user)
+    create(:new_user)
   end
 
-  let(:user) { attributes_for(:user) }
+  let(:new_user) { attributes_for(:new_user) }
 
-  it "signs me in" do
-    visit login_path
+  it "it registers me" do
+    visit new_user_path
     within("#new_user") do
-      fill_in 'user_username', :with => user[:username]
-      fill_in 'user_password', :with => user[:password]
+      fill_in 'user_name', :with => new_user[:name]
+      fill_in 'user_username', :with => new_user[:username]
+      fill_in 'user_password', :with => new_user[:password]
     end
-    click_button 'Login'
-    expect(page).to have_content "Hello #{user[:name]}"
+    click_button 'Register'
+    expect(page).to have_content "Hello #{new_user[:name]}"
   end
 end
 
