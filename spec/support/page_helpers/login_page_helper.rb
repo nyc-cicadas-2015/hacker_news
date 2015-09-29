@@ -2,7 +2,7 @@ class LoginPageHelper
   include Capybara::DSL
 
   def visit_page
-    visit login_path
+    visit '/login'
     self
   end
 
