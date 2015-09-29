@@ -21,13 +21,16 @@ describe "the signin process" do
     expect(page).to have_content "Create Post"
   end
 
+  let(:post) { attributes_for(:post) }
+
   it "making a valid post" do
     visit new_post_path
     within("#new_post") do
-      fill_in 'post_url', :with => user[:username]
-      fill_in 'post_title', :with => user[:password]
+      fill_in 'post_url', :with => post[:url]
+      fill_in 'post_title', :with => post[:title]
     end
-    expect(page).to have_content "Create Post"
+    click_button "Create"
+    expect(page).to have_content "#{post[:title]}"
   end
 
 
