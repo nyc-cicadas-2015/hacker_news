@@ -2,8 +2,11 @@
 
 <h6>written by <%=@post.user.username%> <%= time_ago_in_words(@post.created_at) %></h6>
 
-<%= render partial: "comments/comment_form", locals: {comment: @new_comment, post: @post} %>
-
+<% if logged_in? %>
+  <%= render partial: "comments/comment_form", locals: {comment: @new_comment, post: @post} %>
+<% else %>
+  <%= link_to "login to leave a comment", '/login' %>
+<% end %>
 
 <ol>
   <% @post.comments.each do |comment| %>
