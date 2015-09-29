@@ -3,7 +3,6 @@ require_relative '../rails_helper'
 describe "the signin process" do
   before :each do
     create(:user)
-    # User.create(:name => "user", :username => 'user@example.com', :password => 'password')
   end
 
   let(:user) { attributes_for(:user) }
@@ -16,7 +15,6 @@ describe "the signin process" do
     end
     click_button 'Login'
     expect(page).to have_content "Hello #{user[:name]}"
-    # expect(current_path) == root_path
   end
 end
 
