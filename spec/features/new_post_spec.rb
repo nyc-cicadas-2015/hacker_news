@@ -1,6 +1,6 @@
 require_relative '../rails_helper'
 
-describe "the signin process" do
+describe "the post creation process" do
   let(:log_me_in) {
     visit login_path
     within("#new_user") do
@@ -32,7 +32,5 @@ describe "the signin process" do
     click_button "Create"
     expect(page).to have_content "#{post[:title]}"
   end
-
-
 end
 
