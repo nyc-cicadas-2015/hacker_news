@@ -15,7 +15,7 @@ describe "the signin process" do
       fill_in 'user_password', :with => user[:password]
     end
     click_button 'Login'
-    expect(page).to have_content "Welcome #{user[:username]}"
+    expect(page).to have_content "Hello #{user[:name]}"
     # expect(current_path) == root_path
   end
 end
