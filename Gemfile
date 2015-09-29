@@ -37,6 +37,7 @@ group :development, :test do
   gem 'byebug'
   gem 'factory_girl_rails'
   gem 'faker'
+  gem 'rack_session_access'
 end
 
 group :development do
