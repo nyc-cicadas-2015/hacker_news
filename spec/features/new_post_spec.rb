@@ -2,12 +2,7 @@ require_relative '../rails_helper'
 
 describe "the post creation process" do
   let(:log_me_in) {
-    visit login_path
-    within("#new_user") do
-      fill_in 'user_username', :with => user[:username]
-      fill_in 'user_password', :with => user[:password]
-    end
-    click_button 'Login'
+    LoginPageHelper.new.visit_page.login(user)
   }
 
   before :each do
