@@ -5,7 +5,6 @@ describe "the signin process" do
     LoginPageHelper.new.visit_page.login(user)
   }
 
-
   before :each do
     create(:user)
     log_me_in
