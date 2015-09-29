@@ -23,9 +23,9 @@ describe "the signin process" do
 
   it "making a valid post" do
     visit new_post_path
-    within("#new_user") do
-      fill_in 'user_username', :with => user[:username]
-      fill_in 'user_password', :with => user[:password]
+    within("#new_post") do
+      fill_in 'post_url', :with => user[:username]
+      fill_in 'post_title', :with => user[:password]
     end
     expect(page).to have_content "Create Post"
   end
