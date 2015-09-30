@@ -8,7 +8,7 @@
           <li><%= link_to "Logout", logout_path, method: :delete, id: "logout-link" %></li>
         <% else %>
           <li><%= link_to "login", '/login' %></li>
-          <li><a href="/users/login">Login</a></li>
+          <li><%= link_to "register", '/users/new' %></li>
         <% end %>
       </ul>
     </div>
@@ -16,9 +16,9 @@
 
   <div id="header-wrapper">
     <% if logged_in? %>
-      <h4> Welcome <%= current_user.name %> to Hacker News!</h4>
+      <h4> Welcome <%= current_user.name %> to Hacker(ish) News!</h4>
     <% else %>
-      <h4><%= link_to "register", '/users/new' %></h4>
+      <h4>Welcome to Hacker(ish) News</h4>
     <% end %>
   </div>
 </div>

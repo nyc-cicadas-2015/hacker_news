@@ -12,7 +12,7 @@ describe UsersController do
     before(:each) {
       @user = create(:user)
     }
-    let(:user) { attributes_for(:user)}
+    # let(:user_attr) { attributes_for(:user)}
     it "Shows a specific user page" do
       get :show, id: @user.id
       expect(assigns(:user).id).to be(@user.id)
