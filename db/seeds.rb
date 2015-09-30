@@ -1,4 +1,5 @@
 mark = User.create(username: "markymark", password: "mark", name: "Mark Miller")
+navraj = User.create(username: "dian", password: "dian", name: "Dian Pan")
 navraj = User.create(username: "navraj", password: "raj", name: "Navraj Nat")
 
 post1 = mark.posts.create(title: "10 things to know in tech today", url: "http://www.businessinsider.com/10-things-in-tech-you-need-to-know-september-17-2015-9")

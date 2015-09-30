@@ -1,14 +1,10 @@
 class UsersController < ApplicationController
-  def index
-    @user = User.new
-  end
-
   def new
     @user = User.new
   end
 
   def show
-    @user = User.find(user_params[:id])
+    @user = User.find(params[:id])
   end
 
   def create
@@ -17,7 +13,7 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect_to '/'
     else
-      flash[:dup_user] = "You already exist, please login"
+      flash[:alert] = "You already exist, please login"
       redirect_to '/login'
     end
   end
