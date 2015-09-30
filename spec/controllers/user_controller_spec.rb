@@ -18,4 +18,33 @@ describe UsersController do
       expect(assigns(:user).id).to be(@user.id)
     end
   end
+
+  describe "POST #create" do
+    describe "When Successful" do
+      let(:user_attrs) { attributes_for(:user) }
+      let(:user_params) { { user: attributes_for(:user) } }
+      it "Creates a user" do
+        post(:create, user_params)
+        expect(response).to redirect_to(root_path)
+      end
+    end
+  end
 end
+
+
+
+
+# FACTORY GIRL METHODS PSUEDOCODED
+  # def create type
+  #   build(type).save
+  # end
+
+  # def build type
+  #   type.classify.new(attributes_for(type))
+  # end
+
+  # def attributes_for type
+  #   attrs = type.classify.attributes # :user -> User
+  #   attrs.each_with_object({}) { |obj, attr| obj[attr] = Faker::Name.blah }
+  # end
+
