@@ -13,12 +13,12 @@ describe "the signin process" do
   let(:user) { attributes_for(:user) }
 
   it "signs me in" do
-    expect(page).to have_content "Hello #{user[:name]}"
+    expect(page).to have_content "Welcome #{user[:name]}"
   end
 
   it 'signs me out' do
     click_link 'Logout'
-    expect(page).to have_content "login | register"
+    expect(page).to have_content "login"
   end
 end
 

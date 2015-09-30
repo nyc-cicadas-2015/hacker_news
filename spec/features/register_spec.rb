@@ -15,7 +15,7 @@ describe "the register process" do
       fill_in 'user_password', :with => new_user[:password]
     end
     click_button 'Register'
-    expect(page).to have_content "Hello #{new_user[:name]}"
+    expect(page).to have_content "Welcome #{new_user[:name]}"
   end
 end
 
