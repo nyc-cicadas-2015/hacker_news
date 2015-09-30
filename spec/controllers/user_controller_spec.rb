@@ -35,7 +35,8 @@ describe UsersController do
 
     describe "When Unsuccessful" do
       it "redirects to login" do
-        post(:create, user: {name: 'nil', username: 'nil', password: 'nil' })
+        post(:create, user: {name: nil, username: nil, password: nil })
+        expect(response).to redirect_to(login_path)
       end
 
       # Test redirect
