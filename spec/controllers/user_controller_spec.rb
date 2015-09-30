@@ -39,8 +39,10 @@ describe UsersController do
         expect(response).to redirect_to(login_path)
       end
 
-      # Test redirect
-      # Test flash error
+      it "sets a flash message welcoming the user" do
+        post(:create, user: {name: nil, username: nil, password: nil })
+        expect(flash[:alert]).to have_content "You already exist, please login"
+      end
     end
   end
 end
