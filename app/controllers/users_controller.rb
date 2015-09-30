@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect_to '/'
     else
-      flash[:dup_user] = "You already exist, please login"
+      flash[:alert] = "You already exist, please login"
       redirect_to '/login'
     end
   end

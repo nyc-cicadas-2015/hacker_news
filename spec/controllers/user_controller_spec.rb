@@ -21,7 +21,6 @@ describe UsersController do
 
   describe "POST #create" do
     describe "When Successful" do
-      let(:user_attrs) { attributes_for(:user) }
       let(:user_params) { { user: attributes_for(:user) } }
 
       it "Creates a user" do
@@ -29,10 +28,18 @@ describe UsersController do
         expect(response).to redirect_to(root_path)
       end
 
-      it "sets the user_id variable" do
-        post(:create, user_params)
-        expect(user).to have_key(:id)
+      it "Increased number of users in the database by 1" do
+        expect{post(:create, user_params)}.to change{User.count}.by(1)
       end
+    end
+
+    describe "When Unsuccessful" do
+      it "redirects to login" do
+        post(:create, user: {name: 'nil', username: 'nil', password: 'nil' })
+      end
+
+      # Test redirect
+      # Test flash error
     end
   end
 end
