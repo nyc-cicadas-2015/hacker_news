@@ -1,12 +1,25 @@
-<h1>Welcome to our Hacker(ish) News</h1>
+<div id="wrapper">
+  <div id="menu-wrapper">
+    <div id="menu">
+      <ul>
+        <li class="current_page_item"><%= link_to "[ Y ]", root_path %></li>
+        <% if logged_in? %>
+          <li><%= link_to "Create Post", new_post_path %></li>
+          <li><%= link_to "Logout", logout_path, method: :delete, id: "logout-link" %></li>
+        <% else %>
+          <li><%= link_to "login", '/login' %></li>
+          <li><a href="/users/login">Login</a></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 
-<% if logged_in? %>
-  <h4>Hello <%=current_user.name%>!</h4><br>
-  <%= link_to "Logout", logout_path, method: :delete, id: "logout-link" %><br>
-  <%= link_to "Create Post", new_post_path %>
-
-<%else%>
-  <h4> <%= link_to "login", '/login' %> | <%= link_to "register", '/users/new' %> </h4>
-<%end%>
-<br>
-
+  <div id="header-wrapper">
+    <% if logged_in? %>
+      <h4> Welcome <%= current_user.name %> to Hacker News!</h4>
+    <% else %>
+      <h4><%= link_to "register", '/users/new' %></h4>
+    <% end %>
+  </div>
+</div>
+<div class="container">
